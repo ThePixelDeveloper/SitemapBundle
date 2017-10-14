@@ -24,7 +24,7 @@ class Sitemap implements ResponseInterface
         return $sitemap->accept($this->driver);
     }
 
-    public function outputResponse(VisitorInterface $sitemap, Response $response): Response
+    public function withResponse(VisitorInterface $sitemap, Response $response): Response
     {
         $content = $sitemap->accept($this->driver);
 

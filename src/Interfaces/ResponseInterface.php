@@ -9,5 +9,5 @@ interface ResponseInterface
 {
     public function output(VisitorInterface $sitemap): string;
 
-    public function outputResponse(VisitorInterface $sitemap, Response $response): Response;
+    public function withResponse(VisitorInterface $sitemap, Response $response): Response;
 }

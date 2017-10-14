@@ -39,7 +39,7 @@ class DefaultController extends Controller
         $urlset->add($url);
 
         // Modify a response object to have the correct headers and return it.
-        return $this->get('thepixeldeveloper_sitemap')->outputResponse($urlset, new Response());
+        return $this->get('thepixeldeveloper_sitemap')->withResponse($urlset, new Response());
 
         // or just return the output as a string.
         $content = $this->get('thepixeldeveloper_sitemap')->outout($urlset);
