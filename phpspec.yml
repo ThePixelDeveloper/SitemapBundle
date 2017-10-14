@@ -1,0 +1,4 @@
+suites:
+    sitemap_suite:
+        namespace: Thepixeldeveloper\SitemapBundle
+        psr4_prefix: Thepixeldeveloper\SitemapBundle
