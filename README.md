@@ -7,15 +7,30 @@
 [![Latest Stable Version](https://poser.pugx.org/thepixeldeveloper/sitemap-bundle/v/stable)](https://packagist.org/packages/thepixeldeveloper/sitemap-bundle)
 [![Total Downloads](https://poser.pugx.org/thepixeldeveloper/sitemap-bundle/downloads)](https://packagist.org/packages/thepixeldeveloper/sitemap-bundle)
 
-Integrates [thepixeldeveloper/sitemap](https://gitlab.com/thepixeldeveloper/sitemap-bundle/) into Symfony.
+A symfony bundle that integrates [thepixeldeveloper/sitemap](https://gitlab.com/thepixeldeveloper/sitemap-bundle/).
 
 * [Installation](#installation)
 * [Basic Usage](#basic-usage)
 
 ## Installation
 
+Require composer dependency:
+
 ``` bash
 composer require "thepixeldeveloper/sitemap-bundle"
+```
+
+Register the bundle:
+
+``` php
+//app/AppKernel.php
+public function registerBundles()
+{
+    $bundles = array(
+        //...
+        new Thepixeldeveloper\SitemapBundle\SitemapBundle(),
+    );
+}
 ```
 
 ## Basic Usage

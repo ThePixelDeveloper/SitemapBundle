@@ -1,7 +1,7 @@
 {
   "name": "thepixeldeveloper/sitemap-bundle",
   "type": "library",
-  "description": "XML sitemap generation",
+  "description": "A Symfony Bundle that integrates thepixeldeveloper/sitemap.",
   "keywords": ["sitemap", "xml", "symfony", "bundle"],
   "license": "MIT",
   "authors": [
