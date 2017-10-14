@@ -1,0 +1,35 @@
+{
+  "name": "thepixeldeveloper/sitemap-bundle",
+  "type": "library",
+  "description": "XML sitemap generation",
+  "keywords": ["sitemap", "xml", "symfony", "bundle"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Mathew Davies",
+      "homepage": "http://mathew-davies.co.uk",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "thepixeldeveloper/sitemap": "^5.0"
+  },
+  "require-dev": {
+    "phpspec/phpspec": "^4.0",
+    "symfony/framework-bundle": "^3.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "Thepixeldeveloper\\SitemapBundle\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "spec\\Thepixeldeveloper\\SitemapBundle\\": "spec/"
+    }
+  },
+  "scripts": {
+    "test": "phpspec run"
+  }
+}
