@@ -3,9 +3,9 @@
 # Thepixeldeveloper\SitemapBundle
 
 [![pipeline status](https://gitlab.com/thepixeldeveloper/sitemap-bundle/badges/master/pipeline.svg)](https://gitlab.com/thepixeldeveloper/sitemap-bundle/commits/master)
-[![License](https://poser.pugx.org/thepixeldeveloper/sitemap-bundle/license)](https://packagist.org/packages/thepixeldeveloper/sitemap)
-[![Latest Stable Version](https://poser.pugx.org/thepixeldeveloper/sitemap-bundle/v/stable)](https://packagist.org/packages/thepixeldeveloper/sitemap)
-[![Total Downloads](https://poser.pugx.org/thepixeldeveloper/sitemap-bundle/downloads)](https://packagist.org/packages/thepixeldeveloper/sitemap)
+[![License](https://poser.pugx.org/thepixeldeveloper/sitemap-bundle/license)](https://packagist.org/packages/thepixeldeveloper/sitemap-bundle)
+[![Latest Stable Version](https://poser.pugx.org/thepixeldeveloper/sitemap-bundle/v/stable)](https://packagist.org/packages/thepixeldeveloper/sitemap-bundle)
+[![Total Downloads](https://poser.pugx.org/thepixeldeveloper/sitemap-bundle/downloads)](https://packagist.org/packages/thepixeldeveloper/sitemap-bundle)
 
 Integrates [thepixeldeveloper/sitemap](https://gitlab.com/thepixeldeveloper/sitemap-bundle/) into Symfony.
 
