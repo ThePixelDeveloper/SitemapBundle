@@ -10,57 +10,34 @@
 A symfony bundle that integrates [thepixeldeveloper/sitemap](https://gitlab.com/thepixeldeveloper/sitemap-bundle/).
 
 * [Installation](#installation)
-* [Basic Usage](#basic-usage)
+* [Features](#features)
+* [Usage](#usage)
 
 ## Installation
 
-Require composer dependency:
+1. Require as a composer dependency:
 
-``` bash
-composer require "thepixeldeveloper/sitemap-bundle"
-```
+    ``` bash
+    composer require "thepixeldeveloper/sitemap-bundle"
+    ```
 
-Register the bundle:
 
-``` php
-//app/AppKernel.php
-public function registerBundles()
-{
-    $bundles = array(
-        //...
-        new Thepixeldeveloper\SitemapBundle\SitemapBundle(),
-    );
-}
-```
+2. Register the bundle:
 
-## Basic Usage
-
-``` php
-<?php declare(strict_types=1);
-
-namespace AppBundle\Controllers;
-
-class DefaultController extends Controller
-{
-    public function defaultAction(Request $request)
+    ``` php
+    //app/AppKernel.php
+    public function registerBundles()
     {
-        // Lets create a single entry.
-        $url = new Url('https://example.com');
-        $url->setLastMod(new \DateTime());
-        $url->priority('never');
-
-        // Add it to the collection.
-        $urlset = new Urlset();
-        $urlset->add($url);
-
-        // Modify a response object to have the correct headers and return it.
-        return $this->get('thepixeldeveloper_sitemap')->withResponse($urlset, new Response());
-
-        // or just return the output as a string.
-        $content = $this->get('thepixeldeveloper_sitemap')->outout($urlset);
+        $bundles = [
+            new Thepixeldeveloper\SitemapBundle\SitemapBundle(),
+        ];
     }
-}
+    ```
 
-```
+## Features
 
+1. Handling of sitemap limits, ie file splitting.
 
+## Usage
+
+Read usage documentation starting from [Resources/docs/start.md](tree/master/src/Resources/docs/start.md)
