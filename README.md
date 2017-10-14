@@ -20,7 +20,7 @@ composer require "thepixeldeveloper/sitemap-bundle"
 
 ## Basic Usage
 
-```
+``` php
 <?php declare(strict_types=1);
 
 namespace AppBundle\Controllers;
