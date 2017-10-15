@@ -6,7 +6,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use Thepixeldeveloper\Sitemap\Interfaces\CollectionSplitterInterface;
+use Thepixeldeveloper\Sitemap\ChunkedUrlset;
 use Thepixeldeveloper\SitemapBundle\Event\SitemapPopulateEvent;
 use Thepixeldeveloper\SitemapBundle\Interfaces\DumperInterface;
 
@@ -23,25 +23,25 @@ class SitemapDumperCommand extends Command
     private $eventDispatcher;
 
     /**
-     * @var CollectionSplitterInterface
+     * @var ChunkedUrlset
      */
-    private $collectionSplitter;
+    private $chunkedUrlset;
 
     /**
      * SitemapDumperCommand constructor.
      *
-     * @param DumperInterface             $dumper
-     * @param EventDispatcherInterface    $eventDispatcher
-     * @param CollectionSplitterInterface $collectionSplitter
+     * @param DumperInterface          $dumper
+     * @param EventDispatcherInterface $eventDispatcher
+     * @param ChunkedUrlset            $chunkedUrlset
      */
     public function __construct(
         DumperInterface $dumper,
         EventDispatcherInterface $eventDispatcher,
-        CollectionSplitterInterface $collectionSplitter
+        ChunkedUrlset $chunkedUrlset
     ) {
         $this->dumper = $dumper;
         $this->eventDispatcher = $eventDispatcher;
-        $this->collectionSplitter = $collectionSplitter;
+        $this->chunkedUrlset = $chunkedUrlset;
 
         parent::__construct();
     }
@@ -57,9 +57,9 @@ class SitemapDumperCommand extends Command
     {
         $this->eventDispatcher->dispatch(
             SitemapPopulateEvent::NAME,
-            new SitemapPopulateEvent($this->collectionSplitter)
+            new SitemapPopulateEvent($this->chunkedUrlset)
         );
 
-        $this->dumper->writeCollectionSplitter($this->collectionSplitter);
+        $this->dumper->writeChunkedUrlset($this->chunkedUrlset);
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Thepixeldeveloper\SitemapBundle\Dumper;
 
-use Thepixeldeveloper\Sitemap\Interfaces\CollectionSplitterInterface;
+use Thepixeldeveloper\Sitemap\ChunkedUrlset;
 use Thepixeldeveloper\Sitemap\Interfaces\DriverInterface;
 use Symfony\Component\Filesystem\Filesystem;
 use Thepixeldeveloper\SitemapBundle\Interfaces\DumperInterface;
@@ -38,9 +38,9 @@ class SitemapDumper implements DumperInterface
         $this->directory = rtrim($directory, '/');
     }
 
-    public function writeCollectionSplitter(CollectionSplitterInterface $collectionSplitter)
+    public function writeChunkedUrlset(ChunkedUrlset $chunkedUrlset)
     {
-        foreach ($collectionSplitter->getCollections() as $i => $item) {
+        foreach ($chunkedUrlset->getCollections() as $i => $item) {
             $filename = sprintf('sitemap_%d.xml', $i);
 
             $this->filesystem->dumpFile($this->directory . '/' . $filename,

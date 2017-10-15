@@ -2,9 +2,9 @@
 
 namespace Thepixeldeveloper\SitemapBundle\Interfaces;
 
-use Thepixeldeveloper\Sitemap\Interfaces\CollectionSplitterInterface;
+use Thepixeldeveloper\Sitemap\ChunkedUrlset;
 
 interface DumperInterface
 {
-    public function writeCollectionSplitter(CollectionSplitterInterface $collectionSplitter);
+    public function writeChunkedUrlset(ChunkedUrlset $chuckedCollection);
 }
