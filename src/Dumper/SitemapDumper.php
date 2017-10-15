@@ -38,12 +38,10 @@ class SitemapDumper implements DumperInterface
         $this->directory = rtrim($directory, '/');
     }
 
-    public function writeCollectionSplitter(CollectionSplitterInterface $collectionSplitter, string $filenamePattern)
+    public function writeCollectionSplitter(CollectionSplitterInterface $collectionSplitter)
     {
-        $filenamePattern = ltrim($filenamePattern, '/');
-
         foreach ($collectionSplitter->getCollections() as $i => $item) {
-            $filename = sprintf($filenamePattern, $i);
+            $filename = sprintf('sitemap_%d.xml', $i);
 
             $this->filesystem->dumpFile($this->directory . '/' . $filename,
                 $item->accept($this->driver)

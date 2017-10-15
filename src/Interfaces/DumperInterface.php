@@ -6,5 +6,5 @@ use Thepixeldeveloper\Sitemap\Interfaces\CollectionSplitterInterface;
 
 interface DumperInterface
 {
-    public function writeCollectionSplitter(CollectionSplitterInterface $collectionSplitter, string $filenamePattern);
+    public function writeCollectionSplitter(CollectionSplitterInterface $collectionSplitter);
 }
