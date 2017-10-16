@@ -41,9 +41,7 @@ class SitemapDumper implements DumperInterface
     public function writeChunkedUrlset(ChunkedUrlset $chunkedUrlset)
     {
         foreach ($chunkedUrlset->getCollections() as $i => $item) {
-            $filename = sprintf('sitemap_%d.xml', $i);
-
-            $this->filesystem->dumpFile($this->directory . '/' . $filename,
+            $this->filesystem->dumpFile($this->directory . '/' . sprintf('sitemap-%d.xml', $i),
                 $item->accept($this->driver)
             );
         }
