@@ -13,19 +13,19 @@
   ],
   "repositories": [
     {
-      "type": "path",
-      "url": "../sitemap"
+      "type": "git",
+      "url": "git@www.devkit.net:thepixeldeveloper/sitemap.git"
     }
   ],
   "require": {
-    "php": ">=7.0",
-    "mikey179/vfsStream": "^1.6"
+    "php": ">=7.0"
   },
   "require-dev": {
     "symfony/framework-bundle": "^3.3",
     "thepixeldeveloper/sitemap": "dev-master",
     "phpunit/phpunit": "^6.4",
-    "symfony/console": "^3.3"
+    "symfony/console": "^3.3",
+    "mikey179/vfsStream": "^1.6"
   },
   "autoload": {
     "psr-4": {

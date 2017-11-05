@@ -10,6 +10,7 @@ stages:
 
 .install_dependencies: &install_dependencies
     before_script:
+        - composer config gitlab-token.www.devkit.net $CI_JOB_TOKEN
         - composer install --prefer-dist --classmap-authoritative --no-interaction --no-progress
 
 .composer_test: &composer_test
