@@ -11,13 +11,21 @@
       "role": "Developer"
     }
   ],
+  "repositories": [
+    {
+      "type": "path",
+      "url": "../sitemap"
+    }
+  ],
   "require": {
     "php": ">=7.0",
-    "thepixeldeveloper/sitemap": "dev-master"
+    "mikey179/vfsStream": "^1.6"
   },
   "require-dev": {
-    "phpspec/phpspec": "^4.0",
-    "symfony/framework-bundle": "^3.3"
+    "symfony/framework-bundle": "^3.3",
+    "thepixeldeveloper/sitemap": "dev-master",
+    "phpunit/phpunit": "^6.4",
+    "symfony/console": "^3.3"
   },
   "autoload": {
     "psr-4": {
@@ -26,10 +34,11 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "spec\\Thepixeldeveloper\\SitemapBundle\\": "spec/"
+      "Tests\\Thepixeldeveloper\\SitemapBundle\\": "tests/"
     }
   },
   "scripts": {
-    "test": "phpspec run"
+    "test": "phpunit",
+    "coverage": "phpunit --coverage-text --colors=never --coverage-html ./coverage"
   }
 }

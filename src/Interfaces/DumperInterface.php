@@ -2,9 +2,10 @@
 
 namespace Thepixeldeveloper\SitemapBundle\Interfaces;
 
+use DateTimeInterface;
 use Thepixeldeveloper\Sitemap\ChunkedUrlset;
 
 interface DumperInterface
 {
-    public function writeChunkedUrlset(ChunkedUrlset $chuckedCollection);
+    public function writeChunkedUrlset(ChunkedUrlset $chuckedCollection, DateTimeInterface $lastMod = null);
 }

@@ -1,0 +1,16 @@
+services:
+
+    Thepixeldeveloper\Sitemap\ChunkedUrlset: ~
+    Thepixeldeveloper\Sitemap\Drivers\XmlWriterDriver: ~
+
+    Thepixeldeveloper\SitemapBundle\Dumper\SitemapDumper:
+        autowire: true
+        arguments:
+            $driver: "@Thepixeldeveloper\\Sitemap\\Drivers\\XmlWriterDriver"
+            $directory: "hello"
+
+    Thepixeldeveloper\SitemapBundle\Command\SitemapDumperCommand:
+        autowire: true
+        autoconfigure: true
+        arguments:
+            $dumper: "@Thepixeldeveloper\\SitemapBundle\\Dumper\\SitemapDumper"

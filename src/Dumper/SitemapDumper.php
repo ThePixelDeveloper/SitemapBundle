@@ -2,12 +2,16 @@
 
 namespace Thepixeldeveloper\SitemapBundle\Dumper;
 
+use DateTime;
+use DateTimeInterface;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Routing\RouterInterface;
 use Thepixeldeveloper\Sitemap\ChunkedSitemapIndex;
 use Thepixeldeveloper\Sitemap\ChunkedUrlset;
 use Thepixeldeveloper\Sitemap\Interfaces\DriverInterface;
 use Symfony\Component\Filesystem\Filesystem;
 use Thepixeldeveloper\Sitemap\Sitemap;
+use Thepixeldeveloper\Sitemap\Urlset;
 use Thepixeldeveloper\SitemapBundle\Interfaces\DumperInterface;
 
 class SitemapDumper implements DumperInterface
@@ -28,52 +32,58 @@ class SitemapDumper implements DumperInterface
     private $directory;
 
     /**
-     * @var RouterInterface
+     * @var UrlGeneratorInterface
      */
-    private $router;
+    private $urlGenerator;
 
     /**
      * SitemapDumper constructor.
      *
      * @param DriverInterface $driver
      * @param Filesystem      $filesystem
-     * @param RouterInterface $router
+     * @param UrlGeneratorInterface $urlGenerator
      * @param string          $directory
      */
-    public function __construct(DriverInterface $driver, Filesystem $filesystem, RouterInterface $router, string $directory)
+    public function __construct(DriverInterface $driver, Filesystem $filesystem, UrlGeneratorInterface $urlGenerator, string $directory)
     {
         $this->driver = $driver;
         $this->filesystem = $filesystem;
-        $this->router = $router;
+        $this->urlGenerator = $urlGenerator;
         $this->directory = rtrim($directory, '/');
     }
 
-    public function writeChunkedUrlset(ChunkedUrlset $chunkedUrlset)
+    public function writeChunkedUrlset(ChunkedUrlset $chunkedUrlset, DateTimeInterface $lastMod = null)
     {
-        $chunkedSitemapIndexes = new ChunkedSitemapIndex();
+        $lastMod = $lastMod ?? new DateTime();
+
+        $chunkedSitemapIndex = new ChunkedSitemapIndex();
 
         foreach ($chunkedUrlset->getCollections() as $i => $item) {
-            $filename = sprintf('urlsets-%d.xml', $i);
+            $filename = sprintf('urlset-%d.xml', $i);
 
             $sitemap = new Sitemap(
-                $this->router->generate('thepixeldeveloper_sitemap', [
+                $this->urlGenerator->generate('thepixeldeveloper_sitemap', [
                     'filename' => $filename,
                 ])
             );
-            $sitemap->setLastMod(new \DateTime());
+            $sitemap->setLastMod($lastMod);
 
-            $chunkedSitemapIndexes->add($sitemap);
+            $chunkedSitemapIndex->add($sitemap);
+
+            $item->accept($this->driver);
 
             $this->filesystem->dumpFile($this->directory . '/' . $filename,
-                $item->accept($this->driver)
+                $this->driver->output()
             );
         }
 
-        foreach ($chunkedSitemapIndexes->getCollections() as $i => $item) {
+        foreach ($chunkedSitemapIndex->getCollections() as $i => $item) {
             $filename = sprintf('sitemap-%d.xml', $i);
 
+            $item->accept($this->driver);
+
             $this->filesystem->dumpFile($this->directory . '/' . $filename,
-                $item->accept($this->driver)
+                $this->driver->output()
             );
         }
     }

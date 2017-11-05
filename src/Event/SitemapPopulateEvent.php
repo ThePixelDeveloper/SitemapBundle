@@ -12,26 +12,26 @@ class SitemapPopulateEvent extends Event
     const NAME = 'theixeldeveloper_sitemap.populate';
 
     /**
-     * @var ChunkedCollection
+     * @var ChunkedUrlset
      */
-    private $collectionSplitter;
+    private $urlset;
 
     /**
      * SitemapPopulateEvent constructor.
      *
-     * @param ChunkedUrlset $collectionSplitter
+     * @param ChunkedUrlset $urlset
      */
-    public function __construct(ChunkedUrlset $collectionSplitter)
+    public function __construct(ChunkedUrlset $urlset)
     {
-        $this->collectionSplitter = $collectionSplitter;
+        $this->urlset = $urlset;
     }
 
     /**
      * @return ChunkedUrlset
      */
-    public function getCollectionSplitter(): ChunkedUrlset
+    public function getUrlset(): ChunkedUrlset
     {
-        return $this->collectionSplitter;
+        return $this->urlset;
     }
 }
 
