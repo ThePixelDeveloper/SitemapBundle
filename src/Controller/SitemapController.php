@@ -10,6 +10,6 @@ class SitemapController extends Controller
 {
     public function sitemapAction(Request $request): Response
     {
-
+        
     }
 }
