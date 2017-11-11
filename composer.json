@@ -21,11 +21,12 @@
     "php": ">=7.0"
   },
   "require-dev": {
-    "symfony/framework-bundle": "^3.3",
-    "thepixeldeveloper/sitemap": "dev-master",
+    "mikey179/vfsStream": "^1.6",
     "phpunit/phpunit": "^6.4",
     "symfony/console": "^3.3",
-    "mikey179/vfsStream": "^1.6"
+    "symfony/framework-bundle": "^3.3",
+    "symfony/yaml": "^3.3",
+    "thepixeldeveloper/sitemap": "dev-master"
   },
   "autoload": {
     "psr-4": {
@@ -42,6 +43,7 @@
     "coverage": "phpunit --coverage-text --colors=never --coverage-html ./coverage"
   },
   "config": {
+    "sort-packages": true,
     "gitlab-domains": [
       "www.devkit.net"
     ]
