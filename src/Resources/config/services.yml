@@ -1,8 +1,13 @@
 services:
 
     Thepixeldeveloper\Sitemap\ChunkedUrlset: ~
+
     Thepixeldeveloper\Sitemap\Drivers\XmlWriterDriver: ~
 
+    Thepixeldeveloper\SitemapBundle\Controller\SitemapController:
+        autowire: true
+        autoconfigure: true
+        
     Thepixeldeveloper\SitemapBundle\Dumper\SitemapDumper:
         autowire: true
 

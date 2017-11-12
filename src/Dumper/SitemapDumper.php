@@ -11,6 +11,7 @@ use Thepixeldeveloper\Sitemap\ChunkedUrlset;
 use Thepixeldeveloper\Sitemap\Interfaces\DriverInterface;
 use Symfony\Component\Filesystem\Filesystem;
 use Thepixeldeveloper\Sitemap\Sitemap;
+use Thepixeldeveloper\Sitemap\SitemapIndex;
 use Thepixeldeveloper\Sitemap\Urlset;
 use Thepixeldeveloper\SitemapBundle\Interfaces\DumperInterface;
 
@@ -55,8 +56,8 @@ class SitemapDumper implements DumperInterface
     public function writeChunkedUrlset(ChunkedUrlset $chunkedUrlset, DateTimeInterface $lastMod = null)
     {
         $lastMod = $lastMod ?? new DateTime();
-
-        $chunkedSitemapIndex = new ChunkedSitemapIndex();
+        
+        $sitemapIndex = new SitemapIndex();
 
         foreach ($chunkedUrlset->getCollections() as $i => $item) {
             $filename = sprintf('urlset-%d.xml', $i);
@@ -68,7 +69,7 @@ class SitemapDumper implements DumperInterface
             );
             $sitemap->setLastMod($lastMod);
 
-            $chunkedSitemapIndex->add($sitemap);
+            $sitemapIndex->add($sitemap);
 
             $item->accept($this->driver);
 
@@ -77,14 +78,10 @@ class SitemapDumper implements DumperInterface
             );
         }
 
-        foreach ($chunkedSitemapIndex->getCollections() as $i => $item) {
-            $filename = sprintf('sitemap-%d.xml', $i);
+        $sitemapIndex->accept($this->driver);
 
-            $item->accept($this->driver);
-
-            $this->filesystem->dumpFile($this->directory . '/' . $filename,
-                $this->driver->output()
-            );
-        }
+        $this->filesystem->dumpFile($this->directory . '/sitemap.xml',
+            $this->driver->output()
+        );
     }
 }

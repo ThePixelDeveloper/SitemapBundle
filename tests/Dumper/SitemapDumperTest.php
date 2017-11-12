@@ -42,9 +42,9 @@ class SitemapDumperTest extends TestCase
         $sitemapDumper->writeChunkedUrlset($urlset, $lastMod);
 
         $urlsetContent = file_get_contents($this->filesystem->getChild('urlset-0.xml')->url());
-        $sitemapContent = file_get_contents($this->filesystem->getChild('sitemap-0.xml')->url());
+        $sitemapContent = file_get_contents($this->filesystem->getChild('sitemap.xml')->url());
 
-        $this->assertTrue($this->filesystem->hasChild('sitemap-0.xml'));
+        $this->assertTrue($this->filesystem->hasChild('sitemap.xml'));
         $this->assertTrue($this->filesystem->hasChild('urlset-0.xml'));
 
         $urlsetExpected = <<<XML
@@ -87,9 +87,9 @@ XML;
         $sitemapDumper = $this->getSitemapDumper();
         $sitemapDumper->writeChunkedUrlset($urlset, $lastMod);
 
-        $sitemapContent = file_get_contents($this->filesystem->getChild('sitemap-0.xml')->url());
+        $sitemapContent = file_get_contents($this->filesystem->getChild('sitemap.xml')->url());
 
-        $this->assertTrue($this->filesystem->hasChild('sitemap-0.xml'));
+        $this->assertTrue($this->filesystem->hasChild('sitemap.xml'));
         $this->assertTrue($this->filesystem->hasChild('urlset-0.xml'));
         $this->assertTrue($this->filesystem->hasChild('urlset-1.xml'));
 

@@ -25,11 +25,11 @@ class SitemapController extends Controller
     }
 
     /**
-     * @return Response
+     * @return BinaryFileResponse
      */
-    public function sitemapAction(): Response
+    public function sitemapAction(): BinaryFileResponse
     {
-        $response = new BinaryFileResponse(rtrim($this->directory, '/') . '/sitemap-0.xml');
+        $response = new BinaryFileResponse(rtrim($this->directory, '/') . '/sitemap.xml');
         $response->headers->set('Content-Type', 'application/xml');
         $response->setContentDisposition(
             ResponseHeaderBag::DISPOSITION_INLINE,

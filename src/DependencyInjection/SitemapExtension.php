@@ -17,7 +17,10 @@ class SitemapExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        $definition = $container->findDefinition('Thepixeldeveloper\SitemapBundle\Dumper\SitemapDumper');
-        $definition->setArgument('$directory', $config['sitemap_directory']);
+        $dumper = $container->findDefinition('Thepixeldeveloper\SitemapBundle\Dumper\SitemapDumper');
+        $dumper->setArgument('$directory', $config['sitemap_directory']);
+
+        $controller = $container->findDefinition('Thepixeldeveloper\SitemapBundle\Controller\SitemapController');
+        $controller->setArgument('$directory', $config['sitemap_directory']);
     }
 }

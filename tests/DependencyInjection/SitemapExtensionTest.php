@@ -21,10 +21,15 @@ class SitemapExtensionTest extends TestCase
             ],
         ], $containerBuilder);
 
-        $directory = $containerBuilder
+        $dumperDirectory = $containerBuilder
             ->getDefinition('Thepixeldeveloper\SitemapBundle\Dumper\SitemapDumper')
             ->getArgument('$directory');
 
-        $this->assertSame($expectedDirectory, $directory);
+        $controllerDirectory = $containerBuilder
+            ->getDefinition('Thepixeldeveloper\SitemapBundle\Controller\SitemapController')
+            ->getArgument('$directory');
+
+        $this->assertSame($expectedDirectory, $dumperDirectory);
+        $this->assertSame($expectedDirectory, $controllerDirectory);
     }
 }
