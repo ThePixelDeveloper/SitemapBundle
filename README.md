@@ -1,5 +1,3 @@
-**Notice**: This repository is a mirror of what's hosted on GitLab ([thepixeldeveloper/sitemap-bundle](https://gitlab.com/thepixeldeveloper/sitemap-bundle/)).
-
 # Thepixeldeveloper\SitemapBundle
 
 [![pipeline status](https://www.devkit.net/thepixeldeveloper/sitemap-bundle/badges/master/pipeline.svg)](https://www.devkit.net/thepixeldeveloper/sitemap-bundle/commits/master)
@@ -8,7 +6,7 @@
 [![Latest Stable Version](https://poser.pugx.org/thepixeldeveloper/sitemap-bundle/v/stable)](https://packagist.org/packages/thepixeldeveloper/sitemap-bundle)
 [![Total Downloads](https://poser.pugx.org/thepixeldeveloper/sitemap-bundle/downloads)](https://packagist.org/packages/thepixeldeveloper/sitemap-bundle)
 
-A symfony bundle that integrates [thepixeldeveloper/sitemap](https://gitlab.com/thepixeldeveloper/sitemap-bundle/).
+A symfony bundle that integrates [thepixeldeveloper/sitemap](https://gitlab.com/thepixeldeveloper/sitemap).
 
 * [Installation](#installation)
 * [Usage](#usage)
