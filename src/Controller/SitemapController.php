@@ -4,7 +4,7 @@ namespace Thepixeldeveloper\SitemapBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 
 class SitemapController extends Controller
@@ -27,13 +27,15 @@ class SitemapController extends Controller
     /**
      * @return BinaryFileResponse
      */
-    public function sitemapAction(): BinaryFileResponse
+    public function sitemapAction(Request $request): BinaryFileResponse
     {
-        $response = new BinaryFileResponse(rtrim($this->directory, '/') . '/sitemap.xml');
+        $sitemap = $request->get('sitemap', 'sitemap');
+
+        $response = new BinaryFileResponse(sprintf('%s/%s.xml', rtrim($this->directory, '/'), $sitemap));
         $response->headers->set('Content-Type', 'application/xml');
         $response->setContentDisposition(
             ResponseHeaderBag::DISPOSITION_INLINE,
-            'sitemap.xml'
+            sprintf('%s.xml', $sitemap)
         );
 
         return $response;
