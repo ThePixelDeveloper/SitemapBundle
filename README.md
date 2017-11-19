@@ -14,7 +14,7 @@ A symfony bundle that integrates [thepixeldeveloper/sitemap](https://gitlab.com/
 * [Features](#features)
 * [Usage](#usage)
 
-## Installation
+## Installation and configuration
 
 1. Require as a composer dependency:
 
@@ -43,7 +43,14 @@ A symfony bundle that integrates [thepixeldeveloper/sitemap](https://gitlab.com/
         prefix:   /
     ```
 
-4. Setup a cron job to generate the sitemap.
+4. Define where the XML files will be dumped.
+
+    ``` yaml
+    thepixeldeveloper_sitemap:
+        directory: '%kernel.project_dir%/var/sitemaps'
+    ```
+
+5. Generate your sitemap
 
     ``` bash
     ./bin/console thepixedeveloper:sitemap:dump
