@@ -14,7 +14,7 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
-                ->scalarNode('sitemap_directory')->cannotBeEmpty()
+                ->scalarNode('directory')->cannotBeEmpty()
             ->end()
         ;
 

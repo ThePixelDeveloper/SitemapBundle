@@ -4,9 +4,9 @@ namespace Tests\Thepixeldeveloper\SitemapBundle\DependencyInjection;
 
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Thepixeldeveloper\SitemapBundle\DependencyInjection\SitemapExtension;
+use Thepixeldeveloper\SitemapBundle\DependencyInjection\ThepixeldeveloperSitemapExtension;
 
-class SitemapExtensionTest extends TestCase
+class ThepixeldeveloperSitemapExtensionTest extends TestCase
 {
     public function testSitemapDirectoryPassed()
     {
@@ -14,10 +14,10 @@ class SitemapExtensionTest extends TestCase
 
         $expectedDirectory = 'hello';
 
-        $extension = new SitemapExtension();
+        $extension = new ThepixeldeveloperSitemapExtension();
         $extension->load([
             'thepixeldeveloper_sitemap' => [
-                'sitemap_directory' => $expectedDirectory,
+                'directory' => $expectedDirectory,
             ],
         ], $containerBuilder);
 

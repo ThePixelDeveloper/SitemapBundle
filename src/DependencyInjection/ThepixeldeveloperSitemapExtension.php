@@ -7,7 +7,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
-class SitemapExtension extends Extension
+class ThepixeldeveloperSitemapExtension extends Extension
 {
     public function load(array $configs, ContainerBuilder $container)
     {
@@ -18,9 +18,9 @@ class SitemapExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
 
         $dumper = $container->findDefinition('Thepixeldeveloper\SitemapBundle\Dumper\SitemapDumper');
-        $dumper->setArgument('$directory', $config['sitemap_directory']);
+        $dumper->setArgument('$directory', $config['directory']);
 
         $controller = $container->findDefinition('Thepixeldeveloper\SitemapBundle\Controller\SitemapController');
-        $controller->setArgument('$directory', $config['sitemap_directory']);
+        $controller->setArgument('$directory', $config['directory']);
     }
 }

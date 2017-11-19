@@ -1,4 +1,4 @@
-sitemap_bundle_controller:
+thepixeldeveloer_sitemap_bundle_controller:
     path: /sitemap.xml
     methods: [GET]
     defaults: { _controller: 'SitemapBundle:Sitemap:sitemap' }
