@@ -22,11 +22,10 @@ A symfony bundle that integrates [thepixeldeveloper/sitemap](https://gitlab.com/
     composer require "thepixeldeveloper/sitemap-bundle"
     ```
 
-
 2. Register the bundle:
 
     ``` php
-    //app/AppKernel.php
+    # app/AppKernel.php
     public function registerBundles()
     {
         $bundles = [
@@ -35,10 +34,23 @@ A symfony bundle that integrates [thepixeldeveloper/sitemap](https://gitlab.com/
     }
     ```
 
-## Features
+3. Import routing
 
-1. Handling of sitemap limits, ie file splitting.
+    ``` yaml
+    # app/config/routing.yml
+    sitemap_bundle:
+        resource: "@SitemapBundle/Resources/config/routing.yml"
+        prefix:   /
+    ```
+
+4. Setup a cron job to generate the sitemap.
+
+    ``` bash
+    ./bin/console thepixedeveloper:sitemap:dump
+    ```
 
 ## Usage
 
-Read usage documentation starting from [Resources/docs/start.md](tree/master/src/Resources/docs/start.md)
+1. You need to create an event listener for the `theixeldeveloper_sitemap.populate` event. Add URLs as you wish to the urlset. They'll
+be dumped out when you come to generate your sitemap above.
+2. Your sitemap will live at https://domain.tld/sitemap.xml
