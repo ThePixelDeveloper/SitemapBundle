@@ -60,11 +60,9 @@ class SitemapDumper implements DumperInterface
         $sitemapIndex = new SitemapIndex();
 
         foreach ($chunkedUrlset->getCollections() as $i => $item) {
-            $filename = sprintf('urlset-%d.xml', $i);
-
             $sitemap = new Sitemap(
-                $this->urlGenerator->generate('thepixeldeveloper_sitemap', [
-                    'filename' => $filename,
+                $this->urlGenerator->generate('thepixeldeveloper_sitemap_bundle_controller', [
+                    'sitemap' => sprintf('urlset-%d', $i),
                 ])
             );
             $sitemap->setLastMod($lastMod);
@@ -73,14 +71,14 @@ class SitemapDumper implements DumperInterface
 
             $item->accept($this->driver);
 
-            $this->filesystem->dumpFile($this->directory . '/' . $filename,
+            $this->filesystem->dumpFile(sprintf('%s/urlset-%d.xml', $this->directory, $i),
                 $this->driver->output()
             );
         }
 
         $sitemapIndex->accept($this->driver);
 
-        $this->filesystem->dumpFile($this->directory . '/sitemap.xml',
+        $this->filesystem->dumpFile(sprintf('%s/sitemap.xml', $this->directory),
             $this->driver->output()
         );
     }

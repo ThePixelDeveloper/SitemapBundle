@@ -11,10 +11,9 @@
 A symfony bundle that integrates [thepixeldeveloper/sitemap](https://gitlab.com/thepixeldeveloper/sitemap-bundle/).
 
 * [Installation](#installation)
-* [Features](#features)
 * [Usage](#usage)
 
-## Installation and configuration
+## Installation
 
 1. Require as a composer dependency:
 

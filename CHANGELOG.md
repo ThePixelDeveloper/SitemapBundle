@@ -1,3 +1,9 @@
+3.0.0
+-----
+
+1. Fix bug routing in SitemapDumper.
+2. Update routing.yml to account for urlset URLs.
+
 2.0.2
 -----
 

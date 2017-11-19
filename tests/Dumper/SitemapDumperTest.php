@@ -64,7 +64,7 @@ XML;
 <sitemapindex xmlns:xsi="https://www.w3.org/2001/xmlschema-instance"
               xsi:schemalocation="http://www.sitemaps.org/schemas/sitemap/0.9 https://www.sitemaps.org/schemas/sitemap/0.9/siteindex.xsd">
     <sitemap>
-        <loc>/sitemap/urlset-0.xml</loc>
+        <loc>urlset-0.xml</loc>
         <lastmod>{$lastMod->format(DATE_W3C)}</lastmod>
     </sitemap>
 </sitemapindex>
@@ -98,11 +98,11 @@ XML;
 <sitemapindex xmlns:xsi="https://www.w3.org/2001/xmlschema-instance"
               xsi:schemalocation="http://www.sitemaps.org/schemas/sitemap/0.9 https://www.sitemaps.org/schemas/sitemap/0.9/siteindex.xsd">
     <sitemap>
-        <loc>/sitemap/urlset-0.xml</loc>
+        <loc>urlset-0.xml</loc>
         <lastmod>{$lastMod->format(DATE_W3C)}</lastmod>
     </sitemap>
     <sitemap>
-        <loc>/sitemap/urlset-1.xml</loc>
+        <loc>urlset-1.xml</loc>
         <lastmod>{$lastMod->format(DATE_W3C)}</lastmod>
     </sitemap>
 </sitemapindex>
@@ -120,15 +120,22 @@ XML;
         {
             public function generate($name, $parameters = [], $referenceType = self::ABSOLUTE_PATH): string
             {
-                if ($name === 'thepixeldeveloper_sitemap') {
-                    return '/sitemap/' . $parameters['filename'];
+                if ($name === 'thepixeldeveloper_sitemap_bundle_controller') {
+                    return $parameters['sitemap'] . '.xml';
                 }
 
                 throw new InvalidArgumentException('Route not defined.');
             }
 
-            public function setContext(RequestContext $context) { }
-            public function getContext() { }
+            public function setContext(RequestContext $context)
+            {
+
+            }
+
+            public function getContext()
+            {
+
+            }
         };
 
         return new SitemapDumper(new XmlWriterDriver(), new Filesystem(), $urlGenerator, $this->filesystem->url());
