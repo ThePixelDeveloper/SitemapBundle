@@ -39,7 +39,7 @@ A symfony bundle that integrates [thepixeldeveloper/sitemap](https://gitlab.com/
     ``` yaml
     # app/config/routing.yml
     thepixeldeveloper_sitemap_bundle:
-        resource: "@SitemapBundle/Resources/config/routing.yml"
+        resource: "@ThepixeldeveloperSitemapBundle/Resources/config/routing.yml"
         prefix:   /
     ```
 
