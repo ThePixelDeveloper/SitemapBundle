@@ -29,7 +29,7 @@ A symfony bundle that integrates [thepixeldeveloper/sitemap](https://gitlab.com/
     public function registerBundles()
     {
         $bundles = [
-            new Thepixeldeveloper\SitemapBundle\SitemapBundle(),
+            new Thepixeldeveloper\SitemapBundle\ThepixeldeveloperSitemapBundle(),
         ];
     }
     ```
@@ -38,7 +38,7 @@ A symfony bundle that integrates [thepixeldeveloper/sitemap](https://gitlab.com/
 
     ``` yaml
     # app/config/routing.yml
-    sitemap_bundle:
+    thepixeldeveloper_sitemap_bundle:
         resource: "@SitemapBundle/Resources/config/routing.yml"
         prefix:   /
     ```

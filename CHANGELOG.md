@@ -1,4 +1,10 @@
+2.0.1
+-----
+
+Fix README mistakes.
+
 2.0.0
+-----
 
 **Breaking changes**
 
