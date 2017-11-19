@@ -1,3 +1,8 @@
+3.0.1
+-----
+
+Fix invalid Controller reference.
+
 3.0.0
 -----
 

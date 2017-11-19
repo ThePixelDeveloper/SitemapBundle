@@ -1,6 +1,6 @@
 thepixeldeveloper_sitemap_bundle_controller:
     path: /{sitemap}.xml
     methods: [GET]
-    defaults: { _controller: 'SitemapBundle:Sitemap:sitemap' }
+    defaults: { _controller: 'ThepixeldeveloperSitemapBundle:Sitemap:sitemap' }
     requirements:
         sitemap: 'sitemap|urlset-\d+'
