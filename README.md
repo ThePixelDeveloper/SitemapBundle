@@ -50,14 +50,14 @@ A symfony bundle that integrates [thepixeldeveloper/sitemap](https://gitlab.com/
         directory: '%kernel.project_dir%/var/sitemaps'
     ```
 
-5. Generate your sitemap
+## Usage
+
+1. [Create an event listener](http://symfony.com/doc/current/event_dispatcher.html#creating-an-event-listener) for `theixeldeveloper_sitemap.populate`. Add Urls to the Urlset collection.
+
+2. Sitemaps are generated as follows:
 
     ``` bash
     ./bin/console thepixedeveloper:sitemap:dump
     ```
-
-## Usage
-
-1. You need to create an event listener for the `theixeldeveloper_sitemap.populate` event. Add URLs as you wish to the urlset. They'll
-be dumped out when you come to generate your sitemap above.
-2. Your sitemap will live at https://domain.tld/sitemap.xml
+    
+3. Your sitemap will be accessible at: https://domain.tld/sitemap.xml
