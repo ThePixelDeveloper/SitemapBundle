@@ -34,4 +34,3 @@ class SitemapPopulateEvent extends Event
         return $this->urlset;
     }
 }
-
