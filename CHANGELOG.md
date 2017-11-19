@@ -1,3 +1,8 @@
+3.0.2
+-----
+
+Ensure the controller can serve all the files required.
+
 3.0.1
 -----
 
