@@ -1,7 +1,7 @@
 # Thepixeldeveloper\SitemapBundle
 
-[![pipeline status](https://www.devkit.net/thepixeldeveloper/sitemap-bundle/badges/master/pipeline.svg)](https://www.devkit.net/thepixeldeveloper/sitemap-bundle/commits/master)
-[![coverage report](https://www.devkit.net/thepixeldeveloper/sitemap-bundle/badges/master/coverage.svg)](https://www.devkit.net/thepixeldeveloper/sitemap-bundle/commits/master)
+[![pipeline status](https://www.devkit.net/mathew-davies/SitemapBundle/badges/master/pipeline.svg)](https://www.devkit.net/mathew-davies/SitemapBundle/commits/master)
+[![coverage report](https://www.devkit.net/mathew-davies/SitemapBundle/badges/master/coverage.svg)](https://www.devkit.net/mathew-davies/SitemapBundle/commits/master)
 [![License](https://poser.pugx.org/thepixeldeveloper/sitemap-bundle/license)](https://packagist.org/packages/thepixeldeveloper/sitemap-bundle)
 [![Latest Stable Version](https://poser.pugx.org/thepixeldeveloper/sitemap-bundle/v/stable)](https://packagist.org/packages/thepixeldeveloper/sitemap-bundle)
 [![Total Downloads](https://poser.pugx.org/thepixeldeveloper/sitemap-bundle/downloads)](https://packagist.org/packages/thepixeldeveloper/sitemap-bundle)
