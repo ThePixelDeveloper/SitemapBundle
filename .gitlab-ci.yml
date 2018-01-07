@@ -13,7 +13,7 @@ stages:
 
 .composer_test: &composer_test
     script:
-        - composer test
+        - phpdbg -qrr composer test
 
 lint (phpstan):
     image: $CI_REGISTRY/mathew-davies/dockerimages/php:7.1
