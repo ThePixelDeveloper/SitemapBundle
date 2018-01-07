@@ -17,6 +17,8 @@
   },
   "require-dev": {
     "mikey179/vfsStream": "^1.6",
+    "phpstan/phpstan": "^0.9.1",
+    "phpstan/phpstan-phpunit": "^0.9.3",
     "phpunit/phpunit": "^6.4",
     "symfony/console": "^3.3",
     "symfony/framework-bundle": "^3.3",
@@ -34,6 +36,7 @@
   },
   "scripts": {
     "test": "phpunit",
+    "lint": "phpstan analyse src tests --level=7 -c phpstan.neon",
     "coverage": "phpunit --coverage-text --colors=never --coverage-html ./coverage"
   },
   "config": {
