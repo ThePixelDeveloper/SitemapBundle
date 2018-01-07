@@ -50,7 +50,7 @@ coverage:
     <<: *install_dependencies
     <<: *composer_cache
     script:
-        - phpdbg -qrr composer coverage
+        - composer coverage
     artifacts:
         paths:
           - coverage/

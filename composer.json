@@ -37,7 +37,7 @@
   "scripts": {
     "test": "phpunit",
     "lint": "phpstan analyse src tests --level=7 -c phpstan.neon",
-    "coverage": "phpunit --coverage-text --colors=never --coverage-html ./coverage"
+    "coverage": "phpdbg -qrr phpunit --coverage-text --colors=never --coverage-html ./coverage"
   },
   "config": {
     "sort-packages": true
