@@ -35,9 +35,8 @@
     }
   },
   "scripts": {
-    "test": "phpunit",
-    "lint": "phpstan analyse src tests --level=7 -c phpstan.neon",
-    "coverage": "phpdbg -qrr phpunit --coverage-text --colors=never --coverage-html ./coverage"
+    "test": "phpdbg -qrr vendor/bin/phpunit --coverage-text --colors=never --coverage-html ./coverage",
+    "lint": "phpstan analyse src tests --level=7 -c phpstan.neon"
   },
   "config": {
     "sort-packages": true
