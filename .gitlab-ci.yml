@@ -13,7 +13,7 @@ stages:
 
 .composer_test: &composer_test
     script:
-        - phpdbg -qrr composer test
+        - composer test
 
 lint (phpstan):
     image: $CI_REGISTRY/mathew-davies/dockerimages/php:7.1
@@ -50,7 +50,7 @@ coverage:
     <<: *install_dependencies
     <<: *composer_cache
     script:
-        - composer coverage
+        - phpdbg -qrr composer coverage
     artifacts:
         paths:
           - coverage/
