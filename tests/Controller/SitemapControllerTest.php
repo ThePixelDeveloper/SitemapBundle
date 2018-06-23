@@ -31,13 +31,13 @@ class SitemapControllerTest extends TestCase
         yield [
             new Request([], ['sitemap' => 'sitemap'] ,[], [], [], []),
             'application/xml',
-            'inline; filename="sitemap.xml"',
+            'inline; filename=sitemap.xml',
         ];
 
         yield [
             new Request([], ['sitemap' => 'urlset-0'] ,[], [], [], []),
             'application/xml',
-            'inline; filename="urlset-0.xml"',
+            'inline; filename=urlset-0.xml',
         ];
     }
 
