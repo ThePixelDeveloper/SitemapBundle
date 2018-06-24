@@ -13,16 +13,16 @@
   ],
   "require": {
     "php": ">=7.0",
+    "symfony/console": "^4",
+    "symfony/framework-bundle": "^4",
+    "symfony/yaml": "^4",
     "thepixeldeveloper/sitemap": "^5"
   },
   "require-dev": {
     "mikey179/vfsStream": "^1",
     "phpstan/phpstan": "^0",
     "phpstan/phpstan-phpunit": "^0",
-    "phpunit/phpunit": "^7",
-    "symfony/console": "^4",
-    "symfony/framework-bundle": "^4",
-    "symfony/yaml": "^4"
+    "phpunit/phpunit": "^7"
   },
   "autoload": {
     "psr-4": {
