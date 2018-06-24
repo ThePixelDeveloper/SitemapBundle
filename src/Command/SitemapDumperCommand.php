@@ -49,7 +49,7 @@ class SitemapDumperCommand extends Command
     protected function configure()
     {
         $this
-            ->setName('thepixedeveloper:sitemap:dump')
+            ->setName('thepixeldeveloper:sitemap:dump')
             ->setDescription('Dumps out sitemaps to a directory to read by the Sitemap Controller.');
     }
 
