@@ -6,6 +6,7 @@ use org\bovigo\vfs\vfsStream;
 use org\bovigo\vfs\vfsStreamDirectory;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Thepixeldeveloper\SitemapBundle\Controller\SitemapController;
 
 class SitemapControllerTest extends TestCase
@@ -55,5 +56,19 @@ class SitemapControllerTest extends TestCase
 
         $this->assertSame($contentType, $response->headers->get('Content-Type'));
         $this->assertSame($contentDisposition, $response->headers->get('Content-Disposition'));
+    }
+
+    /**
+     * Tests scenario where the sitemap isn't generated yet.
+     */
+    public function testSitemapNotFound()
+    {
+        $this->expectException(NotFoundHttpException::class);
+        $this->expectExceptionMessage('The XML file "sitemap-404" was not found');
+
+        $request = new Request([], ['sitemap' => 'sitemap-404'] ,[], [], [], []);
+
+        $controller = new SitemapController($this->filesystem->url());
+        $controller->sitemapAction($request);
     }
 }
